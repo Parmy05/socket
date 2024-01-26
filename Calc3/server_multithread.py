@@ -34,6 +34,8 @@ def ricevi_comandi(sock_service, addr_client):
                     risultato = "Impossibile"
             elif operazione == "%":
                     risultato = primoNumero % secondoNumero
+            risultato = str(risultato)
+            sock_client.sendall(risultato.encode("UTF-8"))
             print("Il risultato è: ",risultato)
         sock_service.close()
 
