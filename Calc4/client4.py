@@ -25,8 +25,8 @@ def genera_richieste(address, port):
 
 if __name__== '__main__':
     start_time = time.time()
-    threads = [threading.Thread(target = genera_richieste,agrs = (SERVER_ADDRESS, SERVER_PORT,)) for _ in range(NUM_WORKERS)]
-    [threads.start() for thread in threads]
+    threads = [threading.Thread(target = genera_richieste,args = (SERVER_ADDRESS, SERVER_PORT,)) for _ in range(NUM_WORKERS)]
+    [thread.start() for thread in threads]
     [thread.join() for thread in threads]
     end_time = time.time()
     
